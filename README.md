@@ -1,24 +1,32 @@
-# Friday Theme
+Freelancer Jekyll theme  
+=========================
 
-## A Bootstrap 4 portfolio and blog theme for Jekyll
+Jekyll theme based on [Freelancer bootstrap theme ](http://startbootstrap.com/template-overviews/freelancer/)
 
-* Example 1: This repo builds directly to GitHub pages, which is also the documentation:  https://sfreytag.github.io/friday-theme/
-* Example 2: my own homepage, http://www.freytag.org.uk
+## How to use
+ - Place a image in `/img/portfolio/`
+ - Replace `your-email@domain.com` in `_config.yml` with your email address. Refer to [formspree](http://formspree.io/) for more information.
+ - Create posts to display your projects. Use the follow as an example:
+```txt
+---
+layout: default
+modal-id: 1
+date: 2020-01-18
+img: cabin.png
+alt: image-alt
+project-date: January 2020
+client: The Client
+category: Web Development
+description: The description of the project
 
-## Get Started
+---
+```
 
-Follow the [install notes](https://sfreytag.github.io/friday-theme/projects/install.html).
+## Demo
+View this jekyll theme in action [here](https://jeromelachaud.com/freelancer-theme)
 
-## Usage
+## Screenshot
+![screenshot](https://raw.githubusercontent.com/jeromelachaud/freelancer-theme/master/screenshot.png)
 
-The theme is free to use, but if you do use it, it would be great to hear from you. Email simon@freytag.org.uk - thanks!
-
-## Comaptible with Jekyll 4 and GitHub pages
-
-This theme uses {{site.baseurl}} throughout.
-
-This means it works well gith GitHub pages and Jekyll 3.9, where the site is served out of a folder - eg https://sfreytag.github.io/friday-theme/
-
-It also works with Jekyll 4.* and where the site is served out of the root of the domain - eg https://www.freytag.org.uk
-
-Look at `_config.yml` and the `baseurl` setting.
+---------
+For more details, read the [documentation](http://jekyllrb.com/)
