@@ -1,0 +1,6 @@
+- name: Main(Logo)
+  link: /
+- name: About
+  link: /about.html
+- name: Portfolio  # portfolio 페이지는 페이지네이션 때문에 확장자 뗌
+  link: /portfolio

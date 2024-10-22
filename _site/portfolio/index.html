@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+
+    <!-- 스타일시트 -->
+    <script src="https://kit.fontawesome.com/6eaf0048b8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/font.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- 라이브러리 -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/masonry.pkgd.min.js"></script>
+    <script src="/assets/js/simple-jekyll-search.js"></script>
+    <script src="/assets/js/infinite-scroll.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+  <div class="inner">
+      <div class="logo">
+          <a href="/">Main(Logo)</a>
+      </div>
+      <div class="menu">
+          
+          <a href="/" >
+              Main(Logo)
+          </a>
+          
+          <a href="/about.html" >
+              About
+          </a>
+          
+          <a href="/portfolio" >
+              Portfolio
+          </a>
+          
+          <div class="theme" id="toggleTheme">
+              <button>
+                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-moon"></i>
+              </button>
+          </div>
+      </div>
+  </div>
+</header>
+<script>
+  // 토글테마(다크모드 온오프)
+  document.getElementById("toggleTheme").addEventListener("click", () => {
+    const wrapper = document.getElementById("wrapper");
+ 
+    if (wrapper.classList.contains("dark")) {
+        wrapper.classList.remove("dark");
+        localStorage.setItem("darkTheme", "false");
+    } else {
+        wrapper.classList.add("dark");
+        localStorage.setItem("darkTheme", "true");
+    }
+  });
+
+  const storedTheme = localStorage.getItem("darkTheme"); 
+  // 로컬스토리지 체크
+  if (storedTheme !== null) {
+      if (storedTheme === "true") {
+        wrapper.classList.add("dark");
+      } 
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      // 시스템에서 다크모드일 때 다크모드로 변경
+      wrapper.classList.add("dark");
+  }
+</script>
+      <div class="search-area">
+  <div class="common-header search">
+    <div class="search">
+      <input id="search-input" 
+        type="search" 
+        tabindex="1" 
+        spellcheck="false" 
+        placeholder="Search"
+      >
+    </div>
+  </div>
+  <ul id="search-results"></ul>
+</div>
+
+<div class="portfolio-area">
+  <ul class="portfolio-list grid">
+    
+    <li class="grid-item">
+        <h1><a href="/2024/10/18/5.-portfolio5.html">5. portfolio5</a></h1>
+        <p class="date" style="display:none;">
+          <span class="date">2024.10.18</span>
+        </p>
+        
+        <div class="tag">JSP</div>
+        
+        <div class="content">
+          <p>hiyo third portfolio5555</p>
+
+        </div>
+    </li>
+    
+    <li class="grid-item">
+        <h1><a href="/2024/10/18/4.-portfolio4.html">4. portfolio4</a></h1>
+        <p class="date" style="display:none;">
+          <span class="date">2024.10.18</span>
+        </p>
+        
+        <div class="tag">ASP</div>
+        
+        <div class="content">
+          <p>hiyo third portfolio4444</p>
+
+        </div>
+    </li>
+    
+  </ul>
+</div>
+
+
+<div class="page-load-status">
+  <div class="loader-ellips infinite-scroll-request">
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+  </div>
+  <p class="infinite-scroll-last">마지막 페이지입니다.</p>
+  <p class="infinite-scroll-error">더 이상 불러올 수 없습니다.</p>
+</div>
+
+
+<div class="pager">
+  
+    <a href="/portfolio/page2/" class="next">Next &raquo;</a>
+  
+</div>
+
+
+
+
+<script>
+  // Marsonry Layout
+  let grid = document.querySelector('.grid');
+  let msnry = new Masonry( grid, {
+    itemSelector: 'none', // select none at first
+    columnWidth: '.grid-item',
+    percentPosition: true,
+    horizontalOrder: true,
+    gutter: 18,
+    stagger: 18,
+    // nicer reveal transition
+    visibleStyle: { transform: 'translateY(0)', opacity: 1 },
+    hiddenStyle: { transform: 'translateY(100px)', opacity: 0 },
+  });
+
+  // initial items reveal
+  imagesLoaded( grid, function() {
+    grid.classList.remove('are-images-unloaded');
+    msnry.options.itemSelector = '.grid-item';
+    let items = grid.querySelectorAll('.grid-item');
+    msnry.appended( items );
+  });
+
+
+
+  const portfolioList = document.querySelector('.portfolio-list');
+  const infScroll = new InfiniteScroll(portfolioList, {
+    path: '.next',
+    append: '.grid-item',
+    status: '.page-load-status',
+    hideNav: '.pager',
+    history: false,
+    scrollThreshold: 100,
+    outlayer: msnry,
+  });  
+  
+  window.simpleJekyllSearch = new SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '/assets/json/search.json',
+    searchResultTemplate: `
+      <li>
+        <div>
+          <i class="fas fa-book fa-fw"></i>
+          <a href="{url}">{title}</a>
+        </div>
+        <div>
+          <i class="fas fa-tags fa-fw"></i>
+          <a href="{url}">{tags}</a>
+        </div>
+        <div>
+          <i class="fas fa-calendar-alt fa-fw"></i>
+          <a href="{url}">{date}</a>
+        </div>
+      </li>
+    `,
+    noResultsText: '',
+    limit: 300,
+  });
+
+  window.onload = function() {
+  window.simpleJekyllSearch.search(document.getElementById('search-input').value);
+  };
+</script>
+
+
+    </div>
+  </body>
+</html>

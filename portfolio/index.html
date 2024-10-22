@@ -1,0 +1,125 @@
+---
+layout: default
+title: Portfolio
+---
+
+<div class="search-area">
+  <div class="common-header search">
+    <div class="search">
+      <input id="search-input" 
+        type="search" 
+        tabindex="1" 
+        spellcheck="false" 
+        placeholder="Search"
+      >
+    </div>
+  </div>
+  <ul id="search-results"></ul>
+</div>
+
+<div class="portfolio-area">
+  <ul class="portfolio-list grid">
+    {% for post in paginator.posts %}
+    <li class="grid-item">
+        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <p class="date" style="display:none;">
+          <span class="date">{{ post.date | date: '%Y.%m.%d' }}</span>
+        </p>
+        {% if post.tags %}
+        <div class="tag">{{ post.tags | join: ', ' }}</div>
+        {% endif %}
+        <div class="content">
+          {{ post.content }}
+        </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<div class="page-load-status">
+  <div class="loader-ellips infinite-scroll-request">
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+  </div>
+  <p class="infinite-scroll-last">마지막 페이지입니다.</p>
+  <p class="infinite-scroll-error">더 이상 불러올 수 없습니다.</p>
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pager">
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next &raquo;</a>
+  {% endif %}
+</div>
+{% endif %}
+
+
+
+<script>
+  // Marsonry Layout
+  let grid = document.querySelector('.grid');
+  let msnry = new Masonry( grid, {
+    itemSelector: 'none', // select none at first
+    columnWidth: '.grid-item',
+    percentPosition: true,
+    horizontalOrder: true,
+    gutter: 18,
+    stagger: 18,
+    // nicer reveal transition
+    visibleStyle: { transform: 'translateY(0)', opacity: 1 },
+    hiddenStyle: { transform: 'translateY(100px)', opacity: 0 },
+  });
+
+  // initial items reveal
+  imagesLoaded( grid, function() {
+    grid.classList.remove('are-images-unloaded');
+    msnry.options.itemSelector = '.grid-item';
+    let items = grid.querySelectorAll('.grid-item');
+    msnry.appended( items );
+  });
+
+
+
+  const portfolioList = document.querySelector('.portfolio-list');
+  const infScroll = new InfiniteScroll(portfolioList, {
+    path: '.next',
+    append: '.grid-item',
+    status: '.page-load-status',
+    hideNav: '.pager',
+    history: false,
+    scrollThreshold: 100,
+    outlayer: msnry,
+  });  
+  
+  window.simpleJekyllSearch = new SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '{{ site.baseurl }}/assets/json/search.json',
+    searchResultTemplate: `
+      <li>
+        <div>
+          <i class="fas fa-book fa-fw"></i>
+          <a href="{url}">{title}</a>
+        </div>
+        <div>
+          <i class="fas fa-tags fa-fw"></i>
+          <a href="{url}">{tags}</a>
+        </div>
+        <div>
+          <i class="fas fa-calendar-alt fa-fw"></i>
+          <a href="{url}">{date}</a>
+        </div>
+      </li>
+    `,
+    noResultsText: '',
+    limit: 300,
+  });
+
+  window.onload = function() {
+  window.simpleJekyllSearch.search(document.getElementById('search-input').value);
+  };
+</script>
+
