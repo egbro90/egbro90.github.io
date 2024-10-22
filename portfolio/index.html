@@ -21,7 +21,7 @@ title: Portfolio
   <ul class="portfolio-list grid">
     {% for post in paginator.posts %}
     <li class="grid-item">
-        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
         <p class="date" style="display:none;">
           <span class="date">{{ post.date | date: '%Y.%m.%d' }}</span>
         </p>
@@ -67,7 +67,7 @@ title: Portfolio
     percentPosition: true,
     horizontalOrder: true,
     gutter: 18,
-    stagger: 18,
+    stagger: 42,
     // nicer reveal transition
     visibleStyle: { transform: 'translateY(0)', opacity: 1 },
     hiddenStyle: { transform: 'translateY(100px)', opacity: 0 },
