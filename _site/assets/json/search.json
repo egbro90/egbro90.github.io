@@ -1,17 +1,17 @@
 [
   
     {
-      "title"      : "5. portfolio5",
-      "tags"       : "JSP",
+      "title"      : "5. 지트에듀케이션",
+      "tags"       : "PHP, Javascript",
       "date"       : "2024.10.18",
-      "url"        : "/2024/10/18/5.-portfolio5.html"
+      "url"        : "/2024/10/18/5.-%EC%A7%80%ED%8A%B8%EC%97%90%EB%93%80%EC%BC%80%EC%9D%B4%EC%85%98.html"
     },
   
     {
-      "title"      : "4. portfolio4",
-      "tags"       : "ASP",
+      "title"      : "4. 이에이그룹",
+      "tags"       : "PHP, Javascript",
       "date"       : "2024.10.18",
-      "url"        : "/2024/10/18/4.-portfolio4.html"
+      "url"        : "/2024/10/18/4.-%EC%9D%B4%EC%97%90%EC%9D%B4%EA%B7%B8%EB%A3%B9.html"
     },
   
     {
@@ -23,14 +23,14 @@
   
     {
       "title"      : "2. 한끼마켓 스킨",
-      "tags"       : "Godo, PHP, Javascript, Interactive motion",
+      "tags"       : "Godo, PHP, Interactive motion, Javascript",
       "date"       : "2024.10.18",
       "url"        : "/2024/10/18/2.-%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93-%EC%8A%A4%ED%82%A8.html"
     },
   
     {
       "title"      : "1. 구미베어 스킨",
-      "tags"       : "Godo, PHP, Javascript, Interactive motion",
+      "tags"       : "Godo, PHP, Interactive motion, Javascript",
       "date"       : "2024.10.18",
       "url"        : "/2024/10/18/1.-%EA%B5%AC%EB%AF%B8%EB%B2%A0%EC%96%B4-%EC%8A%A4%ED%82%A8.html"
     }

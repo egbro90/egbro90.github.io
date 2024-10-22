@@ -176,8 +176,11 @@ footer {
             width:388px;
             box-sizing:border-box;
             h3 {
-                font-size: 24px;
                 padding-bottom:10px;
+                a {
+                    color: $black;
+                    font-size: 24px;
+                }
             }
             img {
               width: 100%;
@@ -186,10 +189,12 @@ footer {
                 display:none;
             }
             .tag {
+                padding-bottom: 10px;
+                font-family: 'Hanwha R';
+                font-size: 14px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                font-size: 14px;
             }
         }
     }

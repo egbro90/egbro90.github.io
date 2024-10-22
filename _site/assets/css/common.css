@@ -157,8 +157,11 @@ footer .scroll-progressbar .move-top-button {
   box-sizing: border-box;
 }
 .portfolio-area .grid .grid-item h3 {
-  font-size: 24px;
   padding-bottom: 10px;
+}
+.portfolio-area .grid .grid-item h3 a {
+  color: #000;
+  font-size: 24px;
 }
 .portfolio-area .grid .grid-item img {
   width: 100%;
@@ -167,10 +170,12 @@ footer .scroll-progressbar .move-top-button {
   display: none;
 }
 .portfolio-area .grid .grid-item .tag {
+  padding-bottom: 10px;
+  font-family: "Hanwha R";
+  font-size: 14px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 14px;
 }
 
 /*# sourceMappingURL=common.css.map */
