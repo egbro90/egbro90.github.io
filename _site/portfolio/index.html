@@ -71,22 +71,39 @@
       wrapper.classList.add("dark");
   }
 </script>
-      <div class="search-area">
-  <div class="common-header search">
-    <div class="search">
+      <div class="portfolio-area">
+  <div class="search-area">
+    <div class="search-box">
       <input id="search-input" 
         type="search" 
-        tabindex="1" 
         spellcheck="false" 
-        placeholder="Search"
+        placeholder="Please search by title or tag..."
       >
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
+    <ul id="search-results"></ul>
   </div>
-  <ul id="search-results"></ul>
-</div>
-
-<div class="portfolio-area">
   <ul class="portfolio-list grid">
+    
+    <li class="grid-item">
+        <h3><a href="/2024/10/22/6.-%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8.html">6. 잉글리시에그</a></h3>
+        <p class="date" style="display:none;">
+          <span class="date">2024.10.22</span>
+        </p>
+        
+        <div class="tag">PHP, Javascript</div>
+        
+        <div class="content">
+          <div class="text-area">
+    <a href="https://www.englishegg.com/" target="_blank">잉글리시에그</a>
+    <p class="info">
+        -
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-잉글리시에그.png" alt="잉글리시에그" /></p>
+
+        </div>
+    </li>
     
     <li class="grid-item">
         <h3><a href="/2024/10/18/5.-%EC%A7%80%ED%8A%B8%EC%97%90%EB%93%80%EC%BC%80%EC%9D%B4%EC%85%98.html">5. 지트에듀케이션</a></h3>
@@ -104,26 +121,6 @@
     </p>
 </div>
 <p><img src="http://localhost:4000/assets/images/portfolio-지트에듀케이션.png" alt="지트에듀케이션" /></p>
-
-        </div>
-    </li>
-    
-    <li class="grid-item">
-        <h3><a href="/2024/10/18/4.-%EC%9D%B4%EC%97%90%EC%9D%B4%EA%B7%B8%EB%A3%B9.html">4. 이에이그룹</a></h3>
-        <p class="date" style="display:none;">
-          <span class="date">2024.10.18</span>
-        </p>
-        
-        <div class="tag">PHP, Javascript</div>
-        
-        <div class="content">
-          <div class="text-area">
-    <a href="https://naturalface.co.kr/intro/index.php" target="_blank">이에이그룹</a>
-    <p class="info">
-        -
-    </p>
-</div>
-<p><img src="http://localhost:4000/assets/images/portfolio-이에이그룹.png" alt="이에이그룹" /></p>
 
         </div>
     </li>
@@ -195,20 +192,19 @@
     searchResultTemplate: `
       <li>
         <div>
-          <i class="fas fa-book fa-fw"></i>
           <a href="{url}">{title}</a>
         </div>
         <div>
-          <i class="fas fa-tags fa-fw"></i>
           <a href="{url}">{tags}</a>
         </div>
         <div>
-          <i class="fas fa-calendar-alt fa-fw"></i>
           <a href="{url}">{date}</a>
         </div>
       </li>
     `,
-    noResultsText: '',
+    noResultsText: `
+      <li class="no-result">No results found</li>
+    `,
     limit: 300,
   });
 

@@ -3,21 +3,18 @@ layout: default
 title: Portfolio
 ---
 
-<div class="search-area">
-  <div class="common-header search">
-    <div class="search">
+<div class="portfolio-area">
+  <div class="search-area">
+    <div class="search-box">
       <input id="search-input" 
         type="search" 
-        tabindex="1" 
         spellcheck="false" 
-        placeholder="Search"
+        placeholder="Please search by title or tag..."
       >
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
+    <ul id="search-results"></ul>
   </div>
-  <ul id="search-results"></ul>
-</div>
-
-<div class="portfolio-area">
   <ul class="portfolio-list grid">
     {% for post in paginator.posts %}
     <li class="grid-item">
@@ -100,20 +97,19 @@ title: Portfolio
     searchResultTemplate: `
       <li>
         <div>
-          <i class="fas fa-book fa-fw"></i>
           <a href="{url}">{title}</a>
         </div>
         <div>
-          <i class="fas fa-tags fa-fw"></i>
           <a href="{url}">{tags}</a>
         </div>
         <div>
-          <i class="fas fa-calendar-alt fa-fw"></i>
           <a href="{url}">{date}</a>
         </div>
       </li>
     `,
-    noResultsText: '',
+    noResultsText: `
+      <li class="no-result">No results found</li>
+    `,
     limit: 300,
   });
 
