@@ -14,6 +14,7 @@
 #wrapper {
   min-height: 200vh;
   padding: 86px 20px 20px;
+  overflow: hidden;
 }
 #wrapper.dark {
   background-color: #000;
@@ -32,7 +33,7 @@
 #wrapper.dark a {
   color: #fff;
 }
-#wrapper.dark .menu .theme i {
+#wrapper.dark .menu i {
   color: #e1e1e1;
 }
 #wrapper.dark .menu .theme i.fa-moon {
@@ -47,6 +48,7 @@ header.hide .inner {
 }
 header .inner {
   position: fixed;
+  box-sizing: border-box;
   width: 100%;
   left: 0;
   top: 0;
@@ -75,7 +77,14 @@ header .inner .menu {
   justify-content: space-between;
   align-items: center;
 }
+header .inner .menu .quick-area {
+  display: flex;
+}
+header .inner .menu .quick-area .search-button {
+  margin-right: 20px;
+}
 header .inner .menu button {
+  font-size: 18px;
   cursor: pointer;
   border: 0;
   background-color: transparent;
@@ -142,56 +151,6 @@ footer .scroll-progressbar .move-top-button {
   margin: 0 auto;
   padding-top: 100px;
 }
-.portfolio-area .search-area {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 3;
-}
-.portfolio-area .search-area .search-box {
-  position: relative;
-  width: 100%;
-  height: 60px;
-  border-bottom: 1px solid #000;
-}
-.portfolio-area .search-area .search-box input {
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  padding: 0 0 0 14px;
-  font-size: 16px;
-  outline: none !important;
-  font-family: "Transducer";
-}
-.portfolio-area .search-area .search-box input::-ms-clear, .portfolio-area .search-area .search-box input::-ms-reveal, .portfolio-area .search-area .search-box input::-webkit-search-cancel-button, .portfolio-area .search-area .search-box input::-webkit-search-decoration, .portfolio-area .search-area .search-box input::-webkit-search-results-button, .portfolio-area .search-area .search-box input::-webkit-search-results-decoration {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-.portfolio-area .search-area .search-box i {
-  position: absolute;
-  right: 14px;
-  top: 22px;
-}
-.portfolio-area .search-area #search-results li.no-result {
-  padding-top: 40px;
-  font-size: 20px;
-  text-align: center;
-}
-.portfolio-area .search-area #search-results li:first-of-type:after {
-  display: block;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 60px;
-  width: 100%;
-  height: calc(100vh - 144px);
-  background-color: #fff;
-  z-index: -1;
-}
 .portfolio-area .grid:after {
   display: block;
   content: "";
@@ -224,6 +183,81 @@ footer .scroll-progressbar .move-top-button {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.search-area {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  box-sizing: border-box;
+  left: 0;
+  top: 105%;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.95);
+  justify-content: center;
+}
+.search-area .close-button {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+.search-area .close-button i {
+  font-size: 30px;
+}
+.search-area .inner {
+  width: 1200px;
+}
+.search-area .inner .search-box {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #000;
+}
+.search-area .inner .search-box input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0 0 0 14px;
+  font-size: 16px;
+  outline: none !important;
+  font-family: "Transducer";
+}
+.search-area .inner .search-box input::-ms-clear, .search-area .inner .search-box input::-ms-reveal, .search-area .inner .search-box input::-webkit-search-cancel-button, .search-area .inner .search-box input::-webkit-search-decoration, .search-area .inner .search-box input::-webkit-search-results-button, .search-area .inner .search-box input::-webkit-search-results-decoration {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.search-area .inner .search-box i {
+  position: absolute;
+  right: 14px;
+  top: 22px;
+}
+.search-area .inner #search-results {
+  overflow: auto;
+  height: calc(100vh - 200px);
+}
+.search-area .inner #search-results li.no-result {
+  padding-top: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.search-area .inner #search-results li:first-of-type:after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 144px);
+  background-color: #fff;
+  z-index: -1;
 }
 
 /*# sourceMappingURL=common.css.map */

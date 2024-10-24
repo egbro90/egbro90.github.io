@@ -19,6 +19,7 @@ $gray: gray;
 #wrapper {
     min-height: 200vh;
     padding: 86px 20px 20px;
+    overflow: hidden;
     &.dark {
         header {
             .inner {
@@ -37,14 +38,18 @@ $gray: gray;
         a {
             color: $white;
         }
-        .menu .theme {
+        .menu {
             i {
                 color: #e1e1e1;
-                &.fa-moon {
-                    display: none;
-                }
-                &.fa-sun {
-                    display: block;
+            }
+            .theme {
+                i {
+                    &.fa-moon {
+                        display: none;
+                    }
+                    &.fa-sun {
+                        display: block;
+                    }
                 }
             }
         }
@@ -59,6 +64,7 @@ header {
     }
     .inner {
         position: fixed;
+        box-sizing: border-box;
         width: 100%;
         left: 0;
         top: 0;
@@ -85,7 +91,15 @@ header {
             box-sizing: border-box;
             justify-content: space-between;
             align-items: center;
+
+            .quick-area {
+                display: flex;
+                .search-button {
+                    margin-right:20px;
+                }
+            }
             button {
+                font-size: 18px;
                 cursor: pointer;
                 border: 0;
                 background-color: transparent;
@@ -162,66 +176,6 @@ footer {
     max-width:1200px;
     margin:0 auto;
     padding-top: 100px;
-    .search-area {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        z-index: 3;
-        .search-box {
-            position:relative;
-            width:100%;
-            height:60px;
-            border-bottom:1px solid #000;
-            input {
-                box-sizing: border-box;
-                display:block;
-                width:100%;
-                height:100%;
-                border:0;
-                padding:0 0 0 14px;
-                font-size:16px;
-                outline: none !important;
-                font-family: 'Transducer';
-                &::-ms-clear, 
-                &::-ms-reveal,
-                &::-webkit-search-cancel-button,
-                &::-webkit-search-decoration,
-                &::-webkit-search-results-button,
-                &::-webkit-search-results-decoration{
-                    display: none !important;
-                    width: 0 !important;
-                    height: 0 !important;
-                }
-            }
-            i {
-                position:absolute;
-                right: 14px;
-                top: 22px;
-            }
-        }
-        #search-results {
-            li {
-                &.no-result {
-                    padding-top: 40px;
-                    font-size: 20px;
-                    text-align: center;
-                }
-                &:first-of-type:after { 
-                    display: block;
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    top: 60px;
-                    width: 100%;
-                    height: calc(100vh - 144px);
-                    background-color: #fff;
-                    z-index: -1;
-                }
-            }
-        }
-    }
-
     .grid {
         &:after {
             display:block;content:"";clear:both;
@@ -257,6 +211,96 @@ footer {
     }
 }
 
-
+// 검색영역
+.search-area {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    box-sizing: border-box;
+    left: 0;
+    top: 105%;
+    width: 100%;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.95);
+    justify-content: center;
+    .close-button {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 30px;
+        top: 15px;
+        i {
+            font-size: 30px;
+        }
+    }
+    .inner {
+        width: 1200px;
+        .search-box {
+            position:relative;
+            width:100%;
+            height:60px;
+            border-bottom:1px solid #000;
+            input {
+                box-sizing: border-box;
+                display:block;
+                width:100%;
+                height:100%;
+                border:0;
+                padding:0 0 0 14px;
+                font-size:16px;
+                outline: none !important;
+                font-family: 'Transducer';
+                &::-ms-clear, 
+                &::-ms-reveal,
+                &::-webkit-search-cancel-button,
+                &::-webkit-search-decoration,
+                &::-webkit-search-results-button,
+                &::-webkit-search-results-decoration{
+                    display: none !important;
+                    width: 0 !important;
+                    height: 0 !important;
+                }
+            }
+            i {
+                position:absolute;
+                right: 14px;
+                top: 22px;
+            }
+        }
+        #search-results {
+            overflow: auto;
+            height: calc(100vh - 200px);
+            li {
+                &.no-result {
+                    padding-top: 40px;
+                    font-size: 20px;
+                    text-align: center;
+                }
+                &:first-of-type:after { 
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 60px;
+                    width: 100%;
+                    height: calc(100vh - 144px);
+                    background-color: #fff;
+                    z-index: -1;
+                }
+                dl {
+                    dt {
+    
+                    }
+                    dd {
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+}
 
 

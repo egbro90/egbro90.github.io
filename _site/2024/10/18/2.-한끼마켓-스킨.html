@@ -12,6 +12,7 @@
 
     <!-- 라이브러리 -->
     <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/jquery.easing.min.js"></script>
     <script src="/assets/js/masonry.pkgd.min.js"></script>
     <script src="/assets/js/simple-jekyll-search.js"></script>
     <script src="/assets/js/infinite-scroll.js"></script>
@@ -37,12 +38,20 @@
               Portfolio
           </a>
           
-          <div class="theme" id="toggleTheme">
+          <div class="quick-area">
+            <div class="search-button">
               <button>
-                <i class="fa-solid fa-sun"></i>
-                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
               </button>
+            </div>
+            <div class="theme" id="toggleTheme">
+                <button>
+                  <i class="fa-solid fa-sun"></i>
+                  <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
           </div>
+          
       </div>
   </div>
 </header>
@@ -70,6 +79,60 @@
       // 시스템에서 다크모드일 때 다크모드로 변경
       wrapper.classList.add("dark");
   }
+</script>
+
+<div class="search-area">
+  <div class="close-button">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+  <div class="inner">
+    <div class="search-box">
+      <input id="search-input" 
+        type="text" 
+        spellcheck="false" 
+        placeholder="Please search by title or tag..."
+      >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <ul id="search-results"></ul>
+  </div>
+</div>
+<script>
+  // 검색버튼 클릭
+  document.querySelector('.search-button').addEventListener('click', function(){
+    $('.search-area').animate({top: "0"}, 1000, 'easeOutBounce');
+  });
+
+  // 검색창 닫기
+  document.querySelector('.close-button').addEventListener('click', function(){
+    $('.search-area').animate({top: "105%"}, 1000, 'easeInOutBack');
+  });
+  
+  window.simpleJekyllSearch = new SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '/assets/json/search.json',
+    searchResultTemplate: `
+      <li class="result-list">
+        <dl>
+          <dt>
+            <a href="{url}">{title}</a>
+          </dt>
+          <dd>
+            {tags}
+          </dd>  
+        </dl>
+      </li>
+    `,
+    noResultsText: `
+      <li class="no-result">No results found</li>
+    `,
+    limit: 300,
+  });
+
+  window.onload = function() {
+    window.simpleJekyllSearch.search(document.getElementById('search-input').value);
+  };
 </script>
       <h1>2. 한끼마켓 스킨</h1>
 
