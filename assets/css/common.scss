@@ -53,6 +53,26 @@ $gray: gray;
                 }
             }
         }
+        .search-area {
+            background-color: rgba(0, 0, 0, 0.95);
+            .inner {
+                .search-box {
+                    input {
+                        background-color: $black;
+                        color: $white;
+                    }
+                }
+                #search-results {
+                    li {
+                        &:first-of-type {
+                            &:after {
+                                background-color: $black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

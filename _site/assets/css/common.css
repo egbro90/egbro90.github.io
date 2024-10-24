@@ -42,6 +42,16 @@
 #wrapper.dark .menu .theme i.fa-sun {
   display: block;
 }
+#wrapper.dark .search-area {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+#wrapper.dark .search-area .inner .search-box input {
+  background-color: #000;
+  color: #fff;
+}
+#wrapper.dark .search-area .inner #search-results li:first-of-type:after {
+  background-color: #000;
+}
 
 header.hide .inner {
   top: -70px;
