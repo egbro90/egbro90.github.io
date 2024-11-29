@@ -1,34 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-29T16:57:41+09:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">10. 테스트4</title><link href="http://localhost:4000/2024/11/29/10.-%ED%85%8C%EC%8A%A4%ED%8A%B84.html" rel="alternate" type="text/html" title="10. 테스트4" /><published>2024-11-29T00:00:00+09:00</published><updated>2024-11-29T00:00:00+09:00</updated><id>http://localhost:4000/2024/11/29/10.%20%ED%85%8C%EC%8A%A4%ED%8A%B84</id><content type="html" xml:base="http://localhost:4000/2024/11/29/10.-%ED%85%8C%EC%8A%A4%ED%8A%B84.html"><![CDATA[<div class="text-area">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-29T17:00:33+09:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">10. 테스트4</title><link href="http://localhost:4000/2024/10/22/10.-%ED%85%8C%EC%8A%A4%ED%8A%B84.html" rel="alternate" type="text/html" title="10. 테스트4" /><published>2024-10-22T00:00:00+09:00</published><updated>2024-10-22T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/22/10.%20%ED%85%8C%EC%8A%A4%ED%8A%B84</id><content type="html" xml:base="http://localhost:4000/2024/10/22/10.-%ED%85%8C%EC%8A%A4%ED%8A%B84.html"><![CDATA[<div class="text-area">
     <a href="https://naturalface.co.kr/intro/index.php" target="_blank">테스트4</a>
     <p class="info">
         -
     </p>
 </div>
-<p><img src="http://localhost:4000/assets/images/portfolio-이에이그룹.png" alt="이에이그룹" /></p>]]></content><author><name></name></author><category term="PHP" /><category term="Javascript" /><summary type="html"><![CDATA[테스트4 -]]></summary></entry><entry><title type="html">7. 테스트1</title><link href="http://localhost:4000/2024/11/29/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html" rel="alternate" type="text/html" title="7. 테스트1" /><published>2024-11-29T00:00:00+09:00</published><updated>2024-11-29T00:00:00+09:00</updated><id>http://localhost:4000/2024/11/29/7.%20%ED%85%8C%EC%8A%A4%ED%8A%B81</id><content type="html" xml:base="http://localhost:4000/2024/11/29/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html"><![CDATA[<div class="text-area">
-    <a href="http://sampleimarketing228.godomall.com/" target="_blank">테스트</a>
-    <p class="info">
-        고도몰을 이용한 구미베어 스킨입니다.
-    </p>
-</div>
-<p><img src="http://localhost:4000/assets/images/portfolio-구미베어.png" alt="고도몰 구미베어 스킨" /></p>]]></content><author><name></name></author><category term="Godo" /><category term="PHP" /><category term="Interactive motion" /><category term="Javascript" /><category term="react" /><category term="hiyo" /><summary type="html"><![CDATA[테스트 고도몰을 이용한 구미베어 스킨입니다.]]></summary></entry><entry><title type="html">8. 테스트2</title><link href="http://localhost:4000/2024/11/29/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html" rel="alternate" type="text/html" title="8. 테스트2" /><published>2024-11-29T00:00:00+09:00</published><updated>2024-11-29T00:00:00+09:00</updated><id>http://localhost:4000/2024/11/29/8.%20%ED%85%8C%EC%8A%A4%ED%8A%B82</id><content type="html" xml:base="http://localhost:4000/2024/11/29/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html"><![CDATA[<div class="text-area">
-    <a href="http://sampleimarketing234.godomall.com/" target="_blank">테스트2</a>
-    <p class="info">
-        고도몰을 이용한 한끼마켓 스킨입니다.
-    </p>
-</div>
-<p><img src="http://localhost:4000/assets/images/portfolio-한끼마켓.png" alt="고도몰 한끼마켓 스킨" /></p>]]></content><author><name></name></author><category term="react" /><category term="java" /><summary type="html"><![CDATA[테스트2 고도몰을 이용한 한끼마켓 스킨입니다.]]></summary></entry><entry><title type="html">9. 테스트3</title><link href="http://localhost:4000/2024/11/29/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html" rel="alternate" type="text/html" title="9. 테스트3" /><published>2024-11-29T00:00:00+09:00</published><updated>2024-11-29T00:00:00+09:00</updated><id>http://localhost:4000/2024/11/29/9.%20%ED%85%8C%EC%8A%A4%ED%8A%B83</id><content type="html" xml:base="http://localhost:4000/2024/11/29/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html"><![CDATA[<div class="text-area">
-    <a href="https://www.englishegg.com/" target="_blank">테스트3</a>
-    <p class="info">
-        -
-    </p>
-</div>
-<p><img src="http://localhost:4000/assets/images/portfolio-잉글리시에그.png" alt="잉글리시에그" /></p>]]></content><author><name></name></author><category term="PHP" /><category term="Javascript" /><summary type="html"><![CDATA[테스트3 -]]></summary></entry><entry><title type="html">6. 잉글리시에그</title><link href="http://localhost:4000/2024/10/22/6.-%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8.html" rel="alternate" type="text/html" title="6. 잉글리시에그" /><published>2024-10-22T00:00:00+09:00</published><updated>2024-10-22T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/22/6.%20%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/2024/10/22/6.-%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8.html"><![CDATA[<div class="text-area">
+<p><img src="http://localhost:4000/assets/images/portfolio-이에이그룹.png" alt="이에이그룹" /></p>]]></content><author><name></name></author><category term="PHP" /><category term="Javascript" /><summary type="html"><![CDATA[테스트4 -]]></summary></entry><entry><title type="html">6. 잉글리시에그</title><link href="http://localhost:4000/2024/10/22/6.-%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8.html" rel="alternate" type="text/html" title="6. 잉글리시에그" /><published>2024-10-22T00:00:00+09:00</published><updated>2024-10-22T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/22/6.%20%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/2024/10/22/6.-%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8.html"><![CDATA[<div class="text-area">
     <a href="https://www.englishegg.com/" target="_blank">잉글리시에그</a>
     <p class="info">
         -
     </p>
 </div>
-<p><img src="http://localhost:4000/assets/images/portfolio-잉글리시에그.png" alt="잉글리시에그" /></p>]]></content><author><name></name></author><category term="PHP" /><category term="Javascript" /><summary type="html"><![CDATA[잉글리시에그 -]]></summary></entry><entry><title type="html">2. 한끼마켓 스킨</title><link href="http://localhost:4000/2024/10/18/2.-%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93-%EC%8A%A4%ED%82%A8.html" rel="alternate" type="text/html" title="2. 한끼마켓 스킨" /><published>2024-10-18T00:00:00+09:00</published><updated>2024-10-18T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/18/2.%20%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93%20%EC%8A%A4%ED%82%A8</id><content type="html" xml:base="http://localhost:4000/2024/10/18/2.-%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93-%EC%8A%A4%ED%82%A8.html"><![CDATA[<div class="text-area">
+<p><img src="http://localhost:4000/assets/images/portfolio-잉글리시에그.png" alt="잉글리시에그" /></p>]]></content><author><name></name></author><category term="PHP" /><category term="Javascript" /><summary type="html"><![CDATA[잉글리시에그 -]]></summary></entry><entry><title type="html">7. 테스트1</title><link href="http://localhost:4000/2024/10/22/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html" rel="alternate" type="text/html" title="7. 테스트1" /><published>2024-10-22T00:00:00+09:00</published><updated>2024-10-22T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/22/7.%20%ED%85%8C%EC%8A%A4%ED%8A%B81</id><content type="html" xml:base="http://localhost:4000/2024/10/22/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html"><![CDATA[<div class="text-area">
+    <a href="http://sampleimarketing228.godomall.com/" target="_blank">테스트</a>
+    <p class="info">
+        고도몰을 이용한 구미베어 스킨입니다.
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-구미베어.png" alt="고도몰 구미베어 스킨" /></p>]]></content><author><name></name></author><category term="Godo" /><category term="PHP" /><category term="Interactive motion" /><category term="Javascript" /><category term="react" /><category term="hiyo" /><summary type="html"><![CDATA[테스트 고도몰을 이용한 구미베어 스킨입니다.]]></summary></entry><entry><title type="html">8. 테스트2</title><link href="http://localhost:4000/2024/10/22/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html" rel="alternate" type="text/html" title="8. 테스트2" /><published>2024-10-22T00:00:00+09:00</published><updated>2024-10-22T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/22/8.%20%ED%85%8C%EC%8A%A4%ED%8A%B82</id><content type="html" xml:base="http://localhost:4000/2024/10/22/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html"><![CDATA[<div class="text-area">
+    <a href="http://sampleimarketing234.godomall.com/" target="_blank">테스트2</a>
+    <p class="info">
+        고도몰을 이용한 한끼마켓 스킨입니다.
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-한끼마켓.png" alt="고도몰 한끼마켓 스킨" /></p>]]></content><author><name></name></author><category term="react" /><category term="java" /><summary type="html"><![CDATA[테스트2 고도몰을 이용한 한끼마켓 스킨입니다.]]></summary></entry><entry><title type="html">9. 테스트3</title><link href="http://localhost:4000/2024/10/22/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html" rel="alternate" type="text/html" title="9. 테스트3" /><published>2024-10-22T00:00:00+09:00</published><updated>2024-10-22T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/22/9.%20%ED%85%8C%EC%8A%A4%ED%8A%B83</id><content type="html" xml:base="http://localhost:4000/2024/10/22/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html"><![CDATA[<div class="text-area">
+    <a href="https://www.englishegg.com/" target="_blank">테스트3</a>
+    <p class="info">
+        -
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-잉글리시에그.png" alt="잉글리시에그" /></p>]]></content><author><name></name></author><category term="PHP" /><category term="Javascript" /><summary type="html"><![CDATA[테스트3 -]]></summary></entry><entry><title type="html">2. 한끼마켓 스킨</title><link href="http://localhost:4000/2024/10/18/2.-%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93-%EC%8A%A4%ED%82%A8.html" rel="alternate" type="text/html" title="2. 한끼마켓 스킨" /><published>2024-10-18T00:00:00+09:00</published><updated>2024-10-18T00:00:00+09:00</updated><id>http://localhost:4000/2024/10/18/2.%20%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93%20%EC%8A%A4%ED%82%A8</id><content type="html" xml:base="http://localhost:4000/2024/10/18/2.-%ED%95%9C%EB%81%BC%EB%A7%88%EC%BC%93-%EC%8A%A4%ED%82%A8.html"><![CDATA[<div class="text-area">
     <a href="http://sampleimarketing234.godomall.com/" target="_blank">고도몰 한끼마켓 스킨 바로가기</a>
     <p class="info">
         고도몰을 이용한 한끼마켓 스킨입니다.

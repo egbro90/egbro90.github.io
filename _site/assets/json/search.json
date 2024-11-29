@@ -3,29 +3,22 @@
     {
       "title"      : "9. 테스트3",
       "tags"       : "PHP, Javascript",
-      "date"       : "2024.11.29",
-      "url"        : "/2024/11/29/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html"
+      "date"       : "2024.10.22",
+      "url"        : "/2024/10/22/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html"
     },
   
     {
       "title"      : "8. 테스트2",
       "tags"       : "react, java",
-      "date"       : "2024.11.29",
-      "url"        : "/2024/11/29/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html"
+      "date"       : "2024.10.22",
+      "url"        : "/2024/10/22/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html"
     },
   
     {
       "title"      : "7. 테스트1",
       "tags"       : "Godo, PHP, Interactive motion, Javascript, react, hiyo",
-      "date"       : "2024.11.29",
-      "url"        : "/2024/11/29/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html"
-    },
-  
-    {
-      "title"      : "10. 테스트4",
-      "tags"       : "PHP, Javascript",
-      "date"       : "2024.11.29",
-      "url"        : "/2024/11/29/10.-%ED%85%8C%EC%8A%A4%ED%8A%B84.html"
+      "date"       : "2024.10.22",
+      "url"        : "/2024/10/22/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html"
     },
   
     {
@@ -33,6 +26,13 @@
       "tags"       : "PHP, Javascript",
       "date"       : "2024.10.22",
       "url"        : "/2024/10/22/6.-%EC%9E%89%EA%B8%80%EB%A6%AC%EC%8B%9C%EC%97%90%EA%B7%B8.html"
+    },
+  
+    {
+      "title"      : "10. 테스트4",
+      "tags"       : "PHP, Javascript",
+      "date"       : "2024.10.22",
+      "url"        : "/2024/10/22/10.-%ED%85%8C%EC%8A%A4%ED%8A%B84.html"
     },
   
     {
