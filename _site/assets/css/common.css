@@ -52,6 +52,12 @@
 #wrapper.dark .search-area .inner #search-results li:first-of-type:after {
   background-color: #000;
 }
+#wrapper.dark .search-area .inner #search-results li dl dt a {
+  color: #fff;
+}
+#wrapper.dark .search-area .inner #search-results li dl dd {
+  color: #fff;
+}
 
 header.hide .inner {
   top: -70px;
@@ -69,6 +75,7 @@ header .inner {
   height: 66px;
   background-color: rgba(255, 255, 255, 0.8);
   transition: top 0.3s;
+  z-index: 3;
 }
 header .inner .logo {
   width: 400px;
@@ -169,11 +176,12 @@ footer .scroll-progressbar .move-top-button {
 .portfolio-area .grid .grid-item {
   float: left;
   height: auto;
-  margin-bottom: 42px;
-  width: 388px;
+  margin-bottom: 50px;
+  width: 366px;
   box-sizing: border-box;
 }
 .portfolio-area .grid .grid-item h3 {
+  position: relative;
   padding-bottom: 10px;
 }
 .portfolio-area .grid .grid-item h3 a {
@@ -183,7 +191,10 @@ footer .scroll-progressbar .move-top-button {
 .portfolio-area .grid .grid-item img {
   width: 100%;
 }
-.portfolio-area .grid .grid-item .text-area {
+.portfolio-area .grid .grid-item .content {
+  font-size: 0;
+}
+.portfolio-area .grid .grid-item .content .text-area {
   display: none;
 }
 .portfolio-area .grid .grid-item .tag {
@@ -250,24 +261,46 @@ footer .scroll-progressbar .move-top-button {
   top: 22px;
 }
 .search-area .inner #search-results {
-  overflow: auto;
   height: calc(100vh - 200px);
+  padding: 0 10px;
+  overflow: auto;
+}
+.search-area .inner #search-results li {
+  padding-top: 12px;
 }
 .search-area .inner #search-results li.no-result {
   padding-top: 40px;
   font-size: 20px;
   text-align: center;
 }
-.search-area .inner #search-results li:first-of-type:after {
-  display: block;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 60px;
-  width: 100%;
-  height: calc(100vh - 144px);
-  background-color: #fff;
-  z-index: -1;
+.search-area .inner #search-results li dl dt a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+.search-area .inner #search-results li dl dd {
+  padding-top: 4px;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media all and (max-width: 1260px) {
+  header .inner {
+    display: block;
+    height: auto;
+  }
+  header .inner .logo {
+    width: 100%;
+    border: 0;
+  }
+  header .inner .menu {
+    width: 100%;
+  }
+  .search-area .inner {
+    width: 95%;
+  }
 }
 
 /*# sourceMappingURL=common.css.map */
