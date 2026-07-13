@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
     <!-- 스타일시트 -->
@@ -21,45 +22,41 @@
     <div id="wrapper">
       <header>
   <div class="inner">
-      <div class="logo">
-          <a href="/">Main(Logo)</a>
+    <a href="/" class="logo-mark" aria-label="Lee Ji Hyeong">
+      <span class="logo-mark__frame">
+        <span class="logo-mark__ring logo-mark__ring--outer"></span>
+        <span class="logo-mark__ring logo-mark__ring--inner"></span>
+        <span class="logo-mark__carousel">
+          <span class="logo-mark__letter">L</span>
+          <span class="logo-mark__letter">J</span>
+          <span class="logo-mark__letter">H</span>
+        </span>
+      </span>
+      <span class="logo-mark__text">
+        <span class="logo-mark__name">Lee Ji Hyeong</span>
+        <span class="logo-mark__role">Portfolio</span>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <div class="search-button">
+        <button type="button" aria-label="검색">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
-      <div class="menu">
-          
-          <a href="/" class="current">
-              Main(Logo)
-          </a>
-          
-          <a href="/about.html" >
-              About
-          </a>
-          
-          <a href="/portfolio" >
-              Portfolio
-          </a>
-          
-          <div class="quick-area">
-            <div class="search-button">
-              <button>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-            <div class="theme" id="toggleTheme">
-                <button>
-                  <i class="fa-solid fa-sun"></i>
-                  <i class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-          </div>
-          
+      <div class="theme" id="toggleTheme">
+        <button type="button" aria-label="테마 변경">
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
+    </div>
   </div>
 </header>
 <script>
-  // 토글테마(다크모드 온오프)
   document.getElementById("toggleTheme").addEventListener("click", () => {
     const wrapper = document.getElementById("wrapper");
- 
+
     if (wrapper.classList.contains("dark")) {
         wrapper.classList.remove("dark");
         localStorage.setItem("darkTheme", "false");
@@ -69,14 +66,12 @@
     }
   });
 
-  const storedTheme = localStorage.getItem("darkTheme"); 
-  // 로컬스토리지 체크
+  const storedTheme = localStorage.getItem("darkTheme");
   if (storedTheme !== null) {
       if (storedTheme === "true") {
         wrapper.classList.add("dark");
-      } 
+      }
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      // 시스템에서 다크모드일 때 다크모드로 변경
       wrapper.classList.add("dark");
   }
 </script>
@@ -87,9 +82,9 @@
   </div>
   <div class="inner">
     <div class="search-box">
-      <input id="search-input" 
-        type="text" 
-        spellcheck="false" 
+      <input id="search-input"
+        type="text"
+        spellcheck="false"
         placeholder="검색어를 입력하세요."
       >
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -98,16 +93,14 @@
   </div>
 </div>
 <script>
-  // 검색버튼 클릭
   document.querySelector('.search-button').addEventListener('click', function(){
     $('.search-area').animate({top: "0"}, 1000, 'easeOutBounce');
   });
 
-  // 검색창 닫기
   document.querySelector('.close-button').addEventListener('click', function(){
     $('.search-area').animate({top: "105%"}, 1000, 'easeInOutBack');
   });
-  
+
   window.simpleJekyllSearch = new SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('search-results'),
@@ -120,7 +113,7 @@
           </dt>
           <dd>
             {tags}
-          </dd>  
+          </dd>
         </dl>
       </li>
     `,
@@ -134,10 +127,592 @@
     window.simpleJekyllSearch.search(document.getElementById('search-input').value);
   };
 </script>
-      Home
-<h1>지킬 테스트</h1>
 
-여기다 컨텐츠 몰아놓을 예정
+      <section id="about" class="about">
+<style>
+    #about { min-height: 280vh; padding-bottom: 30vh; position: relative; z-index: 1; box-sizing: border-box; }
+    #portfolio { position: relative; z-index: 2; background: inherit; }
+    .sect3 { position: relative; height: 100vh; width: 100%; max-width: 100vw; }
+    .sect3 .sect_wrap { display: flex; align-items: center; font-size: clamp(70px, 4vw, 90px); font-weight: 600; height: 100%; position: relative; }
+    .sect3 .sect_wrap .center_box { flex: 1; text-align: center; height: 100vh; perspective: 1000px; position: relative; padding-bottom: 12vh; box-sizing: border-box; min-width: 0; }
+    .sect3 .sect_wrap .center_box__fade {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 38%;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .sect3 .sect_wrap .center_box__fade--top {
+        top: 0;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+    }
+    .sect3 .sect_wrap .center_box__fade--bottom {
+        bottom: 0;
+        height: 28%;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 85%);
+        -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 85%);
+    }
+    .sect3 .sect_wrap .center { transform-style: preserve-3d; height: 100%; position: relative; transform: rotateX(0deg); }
+    .sect3 .sect_wrap .center li {
+        color: #1e1e1e;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        white-space: nowrap;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        font-size: clamp(28px, 5.5vw, 70px);
+        opacity: 0.35;
+        font-family: 'Transducer', 'Hanwha R', sans-serif;
+        transition: filter 0.35s ease, opacity 0.35s ease;
+        max-width: 92vw;
+        text-align: center;
+    }
+    .sect3 .sect_wrap .center li.active { opacity: 1; color: #000; }
+    .sect3 .sect_wrap .left,
+    .sect3 .sect_wrap .right {
+        font-size: clamp(14px, 2vw, 28px);
+        width: clamp(80px, 18vw, 300px);
+        flex-shrink: 0;
+        text-align: center;
+        color: #1e1e1e;
+        letter-spacing: 0.08em;
+    }
+
+    @media all and (max-width: 1024px) {
+        #about { min-height: 260vh; padding-bottom: 24vh; }
+        .sect3 .sect_wrap .center_box { perspective: 800px; }
+    }
+
+    @media all and (max-width: 768px) {
+        #about { min-height: 240vh; padding-bottom: 20vh; }
+        .sect3 {
+            height: auto;
+            min-height: 0;
+        }
+        .sect3 .sect_wrap {
+            display: grid;
+            grid-template-areas:
+                "what"
+                "carousel"
+                "experience";
+            grid-template-columns: 1fr;
+            grid-template-rows: auto minmax(340px, 58vh) auto;
+            align-items: center;
+            justify-items: center;
+            gap: 14px;
+            min-height: 72vh;
+            height: auto;
+            padding: 16px 16px 20px;
+        }
+        .sect3 .sect_wrap .left {
+            grid-area: what;
+            width: 100%;
+            font-size: 12px;
+            letter-spacing: 0.36em;
+            opacity: 0.7;
+            text-align: center;
+        }
+        .sect3 .sect_wrap .right {
+            grid-area: experience;
+            width: 100%;
+            font-size: 12px;
+            letter-spacing: 0.36em;
+            opacity: 0.7;
+            text-align: center;
+        }
+        .sect3 .sect_wrap .center_box {
+            grid-area: carousel;
+            width: 100%;
+            height: 100%;
+            min-height: 340px;
+            max-height: 500px;
+            padding-bottom: 0;
+            perspective: 620px;
+        }
+        .sect3 .sect_wrap .center li {
+            font-size: clamp(17px, 5.2vw, 28px);
+            max-width: 92vw;
+            line-height: 1.2;
+        }
+        .sect3 .sect_wrap .center_box__fade {
+            height: 20%;
+        }
+        .sect3 .sect_wrap .center_box__fade--top {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .sect3 .sect_wrap .center_box__fade--bottom {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    }
+
+    @media all and (max-width: 480px) {
+        #about { min-height: 200vh; padding-bottom: 12vh; }
+        .sect3 .sect_wrap {
+            grid-template-rows: auto minmax(300px, 52vh) auto;
+            min-height: 68vh;
+            padding: 12px 12px 16px;
+            gap: 10px;
+        }
+        .sect3 .sect_wrap .left,
+        .sect3 .sect_wrap .right {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+        }
+        .sect3 .sect_wrap .center_box {
+            min-height: 300px;
+            perspective: 520px;
+        }
+        .sect3 .sect_wrap .center li {
+            font-size: clamp(15px, 4.8vw, 24px);
+            max-width: 90vw;
+        }
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<div class="sect3">
+    <div class="in">
+        <div class="sect_wrap">
+            <div class="left">WHAT</div>
+            <div class="center_box">
+                <div aria-hidden="true" class="home-clients__hidden-list" style="display:none;">
+                    <div class="home-clients__label ttu">1 비젠소프트</div>
+                    <div class="home-clients__label ttu">2 디자인위브</div>
+                    <div class="home-clients__label ttu">3 더존비즈온</div>
+                    <div class="home-clients__label ttu">4 한화생명</div>
+                    <div class="home-clients__label ttu">5 비젠소프트</div>
+                    <div class="home-clients__label ttu">6 디자인위브</div>
+                    <div class="home-clients__label ttu">7 더존비즈온</div>
+                    <div class="home-clients__label ttu">8 한화생명</div>
+                    
+                </div>
+                <div class="center_box__fade center_box__fade--top" aria-hidden="true"></div>
+                <div class="center_box__fade center_box__fade--bottom" aria-hidden="true"></div>
+            </div>
+            <div class="right">EXPERIENCE</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener('scroll', function() {
+        const sect3 = document.querySelector('.sect3');
+        const sect3OffsetTop = sect3.getBoundingClientRect().top +10;
+        const windowWidth = window.innerWidth;
+    });
+
+    function arrangeElements(list, total, baseRadius) {
+        const angleStep = 360 / total;
+
+        for (let i = 0; i < total; i++) {
+            const element = list[i];
+            const theta = i * angleStep;
+
+            const x = 0;
+            const y = baseRadius * Math.sin(toRadians(theta));
+            const z = baseRadius * Math.cos(toRadians(theta));
+            const rotation = -theta;
+
+            element.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) rotateX(${rotation}deg)`;
+        }
+    }
+
+    function angleDiff(a, b) {
+        let diff = Math.abs(a - b) % 360;
+        return diff > 180 ? 360 - diff : diff;
+    }
+
+    function getCenterRotation() {
+        const rotation = gsap.getProperty(".center", "rotationX");
+        return typeof rotation === "number" ? rotation : 0;
+    }
+
+    function resetToFirstItem() {
+        gsap.set(".center", { rotationX: 0 });
+        Array.from(ul.children).forEach((item, i) => {
+            item.classList.toggle('active', i === 0);
+            item.style.filter = 'none';
+        });
+    }
+
+    function syncCarouselState() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+        const carouselProgress = tl1 && tl1.scrollTrigger ? tl1.scrollTrigger.progress : 0;
+        const sect3Top = document.querySelector('.sect3')?.getBoundingClientRect().top ?? 0;
+
+        if (scrollTop <= 30 || carouselProgress <= 0.05 || sect3Top >= 50 && sect3Top <= 100 && scrollTop < 120) {
+            resetToFirstItem();
+            return;
+        }
+
+        updateActiveItem(getCenterRotation());
+    }
+
+    function updateActiveItem(rotateXValue) {
+        const items = Array.from(ul.children);
+        const total = items.length;
+        if (!total) return;
+
+        const angleStep = 360 / total;
+        const startRotation = 0;
+        const endRotation = 315;
+        const scrollProgress = Math.max(0, Math.min(1, (rotateXValue - startRotation) / (endRotation - startRotation)));
+
+        let activeIndex = 0;
+        let bestDistance = Infinity;
+
+        for (let i = 0; i < total; i++) {
+            const distance = angleDiff(i * angleStep, rotateXValue);
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                activeIndex = i;
+            }
+        }
+
+        items.forEach((item, i) => {
+            const distance = angleDiff(i * angleStep, rotateXValue);
+            const isActive = i === activeIndex;
+            let blur = 0;
+
+            if (!isActive) {
+                blur = Math.min(distance / (isMobileView() ? 18 : 14), isMobileView() ? 4 : 7);
+            }
+
+            if (scrollProgress < 0.12 && !isActive) {
+                const edgeStrength = 1 - (scrollProgress / 0.12);
+                if (i === total - 1) {
+                    blur = Math.max(blur, 8 * edgeStrength);
+                }
+            }
+
+            if (scrollProgress > 0.9 && !isActive) {
+                const edgeStrength = (scrollProgress - 0.9) / 0.1;
+                if (i === 0) {
+                    blur = Math.max(blur, 8 * edgeStrength);
+                }
+            }
+
+            item.classList.toggle('active', isActive);
+            item.style.filter = blur > 0.4 ? `blur(${blur.toFixed(1)}px)` : 'none';
+        });
+    }
+
+    function toRadians(degrees) {
+        return degrees * (Math.PI / 180);
+    }
+
+    let hiddenList = Array.from(document.querySelectorAll(".home-clients__hidden-list .home-clients__label"));
+
+    let ul = document.createElement("ul");
+    ul.id = "result";
+    ul.className = "center";
+    ul.style = "translate: none;rotate: none;scale: none;transform: translate3d(0px, 0px, 0px) rotateX(0deg);transform-origin: 50% 50%;"
+
+    function setInitialFocus() {
+        resetToFirstItem();
+    }
+
+    var tl1;
+
+    var centerBox = document.querySelector(".center_box");
+    centerBox.appendChild(ul);
+
+    hiddenList.forEach((div, i) => {
+        var indexPlus1 = i + 1
+
+        let li = document.createElement("li");
+        li.classList.add("home-clients__item", "home-clients__label", "ttu", "list" + indexPlus1);
+        li.style = "translate: none; rotate: none; scale: none; transform-origin: 50% 50%;";
+        li.textContent = div.textContent;
+
+        ul.appendChild(li);
+    });
+
+    function getCarouselRadius() {
+        const width = window.innerWidth;
+        if (width <= 480) return 68;
+        if (width <= 768) return 88;
+        if (width <= 1024) return 200;
+        return 320;
+    }
+
+    function isMobileView() {
+        return window.innerWidth <= 768;
+    }
+
+    function onWindowResize() {
+        const baseRadius = getCarouselRadius();
+        const total = hiddenList.length;
+
+        arrangeElements(Array.from(ul.children), total, baseRadius);
+        syncCarouselState();
+    }
+
+    window.addEventListener('load', function () {
+        onWindowResize();
+        setInitialFocus();
+        ScrollTrigger.refresh();
+        syncCarouselState();
+    });
+    window.addEventListener('resize', function () {
+        onWindowResize();
+        ScrollTrigger.refresh();
+        syncCarouselState();
+    });
+
+    let scrollSyncFrame;
+    window.addEventListener('scroll', function () {
+        cancelAnimationFrame(scrollSyncFrame);
+        scrollSyncFrame = requestAnimationFrame(syncCarouselState);
+    }, { passive: true });
+
+    document.querySelector('.logo-mark')?.addEventListener('click', function () {
+        requestAnimationFrame(function () {
+            setTimeout(resetToFirstItem, 50);
+        });
+    });
+
+    gsap.to('.box', {
+        scrollTrigger: '.box',
+        x: 500
+    });
+
+    function createCarouselTimeline(scrollEnd) {
+        return gsap.timeline({
+            scrollTrigger: {
+                trigger: ".sect3",
+                pin: false,
+                scrub: 1.25,
+                start: "top top",
+                end: scrollEnd,
+                ease: "linear",
+                markers: false,
+                invalidateOnRefresh: true,
+                onUpdate: syncCarouselState,
+                onLeaveBack: resetToFirstItem,
+                onEnterBack: syncCarouselState,
+                onLeave: syncCarouselState,
+                onEnter: syncCarouselState,
+            }
+        }).to(".center", {
+            rotationX: 0,
+            duration: 0,
+        }).to(".center", {
+            rotationX: 315,
+            duration: 1000,
+        });
+    }
+
+    ScrollTrigger.matchMedia({
+        "(min-width: 769px)": function () {
+            tl1 = createCarouselTimeline("bottom+=200% bottom");
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".sect3",
+                    pin: true,
+                    scrub: 1.25,
+                    start: "top top",
+                    end: "bottom+=180% bottom",
+                    ease: "linear",
+                    markers: false,
+                    invalidateOnRefresh: true,
+                    onUpdate: syncCarouselState,
+                }
+            }).to(".sect3", {
+                borderRadius: "0px 0px 50px 50px",
+                duration: 1,
+            });
+        },
+        "(max-width: 768px)": function () {
+            tl1 = createCarouselTimeline("bottom+=160% bottom");
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".sect3",
+                    pin: true,
+                    pinSpacing: true,
+                    scrub: 1,
+                    start: "top top",
+                    end: "bottom+=150% bottom",
+                    ease: "linear",
+                    markers: false,
+                    invalidateOnRefresh: true,
+                    anticipatePin: 1,
+                    onUpdate: syncCarouselState,
+                }
+            }).to(".sect3", {
+                borderRadius: "0px 0px 20px 20px",
+                duration: 1,
+            });
+        }
+    });
+
+    setInitialFocus();
+
+    ScrollTrigger.addEventListener("refresh", syncCarouselState);
+</script>
+</section>
+
+<section id="portfolio">
+<div class="portfolio-area">
+  <ul class="portfolio-list grid">
+    
+    <li class="grid-item">
+        <h3><a href="/2024/10/18/9.-%ED%85%8C%EC%8A%A4%ED%8A%B83.html">9. 테스트3</a></h3>
+        <p class="date" style="display:none;">
+          <span class="date">2024.10.18</span>
+        </p>
+        
+        <div class="tag">PHP, Javascript</div>
+        
+        <div class="content">
+          <div class="text-area">
+    <a href="https://www.englishegg.com/" target="_blank">테스트3</a>
+    <p class="info">
+        -
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-잉글리시에그.png" alt="잉글리시에그" /></p>
+
+        </div>
+    </li>
+    
+    <li class="grid-item">
+        <h3><a href="/2024/10/18/8.-%ED%85%8C%EC%8A%A4%ED%8A%B82.html">8. 테스트2</a></h3>
+        <p class="date" style="display:none;">
+          <span class="date">2024.10.18</span>
+        </p>
+        
+        <div class="tag">react, java</div>
+        
+        <div class="content">
+          <div class="text-area">
+    <a href="http://sampleimarketing234.godomall.com/" target="_blank">테스트2</a>
+    <p class="info">
+        고도몰을 이용한 한끼마켓 스킨입니다.
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-한끼마켓.png" alt="고도몰 한끼마켓 스킨" /></p>
+
+        </div>
+    </li>
+    
+    <li class="grid-item">
+        <h3><a href="/2024/10/18/7.-%ED%85%8C%EC%8A%A4%ED%8A%B81.html">7. 테스트1</a></h3>
+        <p class="date" style="display:none;">
+          <span class="date">2024.10.18</span>
+        </p>
+        
+        <div class="tag">Godo, PHP, Interactive motion, Javascript, react, hiyo</div>
+        
+        <div class="content">
+          <div class="text-area">
+    <a href="http://sampleimarketing228.godomall.com/" target="_blank">테스트</a>
+    <p class="info">
+        고도몰을 이용한 구미베어 스킨입니다.
+    </p>
+</div>
+<p><img src="http://localhost:4000/assets/images/portfolio-구미베어.png" alt="고도몰 구미베어 스킨" /></p>
+
+        </div>
+    </li>
+    
+  </ul>
+</div>
+
+<div class="page-load-status">
+  <div class="loader-ellips infinite-scroll-request">
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+    <span class="loader-ellips__dot"></span>
+  </div>
+  <p class="infinite-scroll-last">마지막 페이지입니다.</p>
+  <p class="infinite-scroll-error">더 이상 불러올 수 없습니다.</p>
+</div>
+
+
+<div class="pager">
+  
+    <a href="/portfolio/page2/" class="next">Next &raquo;</a>
+  
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const grid = document.querySelector('#portfolio .grid');
+    if (!grid) return;
+
+    function getMasonryGutter() {
+        const width = window.innerWidth;
+        if (width <= 768) return 0;
+        if (width <= 1024) return 30;
+        return 50;
+    }
+
+    const msnry = new Masonry(grid, {
+      itemSelector: 'none',
+      columnWidth: '.grid-item',
+      percentPosition: true,
+      horizontalOrder: true,
+      gutter: getMasonryGutter(),
+      stagger: 50,
+      visibleStyle: { transform: 'translateY(0)', opacity: 1 },
+      hiddenStyle: { transform: 'translateY(100px)', opacity: 0 },
+    });
+
+    function layoutMasonry() {
+      msnry.options.gutter = getMasonryGutter();
+      msnry.layout();
+    }
+
+    imagesLoaded(grid, function () {
+      grid.classList.remove('are-images-unloaded');
+      msnry.options.itemSelector = '.grid-item';
+      msnry.appended(grid.querySelectorAll('.grid-item'));
+      layoutMasonry();
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(layoutMasonry, 150);
+    });
+
+    const portfolioList = document.querySelector('#portfolio .portfolio-list');
+    const nextLink = document.querySelector('#portfolio .pager .next');
+
+    if (portfolioList && nextLink) {
+      new InfiniteScroll(portfolioList, {
+        path: '#portfolio .pager .next',
+        append: '.grid-item',
+        status: '.page-load-status',
+        hideNav: '#portfolio .pager',
+        history: false,
+        outlayer: msnry,
+        scrollThreshold: 400,
+      });
+    }
+  });
+</script>
+</section>
+
     </div>
   </body>
 </html>

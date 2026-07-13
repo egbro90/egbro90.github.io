@@ -24,4 +24,4 @@ defaults:
 
 # gem install jekyll-pagination
 paginate: 3                 # 페이징 처리 개수
-paginate_path: "/portfolio/page:num/"
+paginate_path: "/page:num/"

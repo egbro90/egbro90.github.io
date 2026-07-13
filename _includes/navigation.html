@@ -1,36 +1,40 @@
 <header>
   <div class="inner">
-      <div class="logo">
-          <a href="/">Main(Logo)</a>
+    <a href="/" class="logo-mark" aria-label="Lee Ji Hyeong">
+      <span class="logo-mark__frame">
+        <span class="logo-mark__ring logo-mark__ring--outer"></span>
+        <span class="logo-mark__ring logo-mark__ring--inner"></span>
+        <span class="logo-mark__carousel">
+          <span class="logo-mark__letter">L</span>
+          <span class="logo-mark__letter">J</span>
+          <span class="logo-mark__letter">H</span>
+        </span>
+      </span>
+      <span class="logo-mark__text">
+        <span class="logo-mark__name">Lee Ji Hyeong</span>
+        <span class="logo-mark__role">Portfolio</span>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <div class="search-button">
+        <button type="button" aria-label="검색">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
-      <div class="menu">
-          {% for item in site.data.navigation %}
-          <a href="{{item.link}}" {% if page.url == item.link %}class="current"{% endif %}>
-              {{item.name}}
-          </a>
-          {% endfor %}
-          <div class="quick-area">
-            <div class="search-button">
-              <button>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-            <div class="theme" id="toggleTheme">
-                <button>
-                  <i class="fa-solid fa-sun"></i>
-                  <i class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-          </div>
-          
+      <div class="theme" id="toggleTheme">
+        <button type="button" aria-label="테마 변경">
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
+    </div>
   </div>
 </header>
 <script>
-  // 토글테마(다크모드 온오프)
   document.getElementById("toggleTheme").addEventListener("click", () => {
     const wrapper = document.getElementById("wrapper");
- 
+
     if (wrapper.classList.contains("dark")) {
         wrapper.classList.remove("dark");
         localStorage.setItem("darkTheme", "false");
@@ -40,14 +44,12 @@
     }
   });
 
-  const storedTheme = localStorage.getItem("darkTheme"); 
-  // 로컬스토리지 체크
+  const storedTheme = localStorage.getItem("darkTheme");
   if (storedTheme !== null) {
       if (storedTheme === "true") {
         wrapper.classList.add("dark");
-      } 
+      }
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      // 시스템에서 다크모드일 때 다크모드로 변경
       wrapper.classList.add("dark");
   }
 </script>
@@ -58,9 +60,9 @@
   </div>
   <div class="inner">
     <div class="search-box">
-      <input id="search-input" 
-        type="text" 
-        spellcheck="false" 
+      <input id="search-input"
+        type="text"
+        spellcheck="false"
         placeholder="검색어를 입력하세요."
       >
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -69,16 +71,14 @@
   </div>
 </div>
 <script>
-  // 검색버튼 클릭
   document.querySelector('.search-button').addEventListener('click', function(){
     $('.search-area').animate({top: "0"}, 1000, 'easeOutBounce');
   });
 
-  // 검색창 닫기
   document.querySelector('.close-button').addEventListener('click', function(){
     $('.search-area').animate({top: "105%"}, 1000, 'easeInOutBack');
   });
-  
+
   window.simpleJekyllSearch = new SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('search-results'),
@@ -91,7 +91,7 @@
           </dt>
           <dd>
             {tags}
-          </dd>  
+          </dd>
         </dl>
       </li>
     `,
