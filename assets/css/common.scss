@@ -429,7 +429,7 @@ footer {
                 white-space: nowrap;
                 -webkit-backface-visibility: visible;
                 backface-visibility: visible;
-                font-size: clamp(28px, 5.5vw, 70px);
+                font-size: clamp(36px, 7vw, 88px);
                 opacity: 0.3;
                 font-family: 'Transducer', 'Hanwha R', sans-serif;
                 transition: none;
@@ -445,7 +445,7 @@ footer {
 
         .left,
         .right {
-            font-size: clamp(14px, 2vw, 28px);
+            font-size: clamp(16px, 2.4vw, 32px);
             width: clamp(80px, 18vw, 300px);
             flex-shrink: 0;
             text-align: center;
@@ -692,7 +692,7 @@ footer {
             .left {
                 grid-area: what;
                 width: 100%;
-                font-size: 12px;
+                font-size: 14px;
                 letter-spacing: 0.36em;
                 opacity: 0.7;
                 text-align: center;
@@ -701,7 +701,7 @@ footer {
             .right {
                 grid-area: experience;
                 width: 100%;
-                font-size: 12px;
+                font-size: 14px;
                 letter-spacing: 0.36em;
                 opacity: 0.7;
                 text-align: center;
@@ -732,7 +732,7 @@ footer {
             }
 
             .center li {
-                font-size: clamp(17px, 5.2vw, 28px);
+                font-size: clamp(22px, 6.2vw, 36px);
                 max-width: 92vw;
                 line-height: 1.2;
                 transition: none;
@@ -866,7 +866,7 @@ footer {
 
         .left,
         .right {
-            font-size: 10px;
+            font-size: 12px;
             letter-spacing: 0.3em;
         }
 
@@ -876,7 +876,7 @@ footer {
         }
 
         .center li {
-            font-size: clamp(15px, 4.8vw, 24px);
+            font-size: clamp(19px, 5.6vw, 30px);
             max-width: 90vw;
         }
     }
