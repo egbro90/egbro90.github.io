@@ -174,6 +174,7 @@
         transition: filter 0.35s ease, opacity 0.35s ease;
         max-width: 92vw;
         text-align: center;
+        will-change: transform, opacity, filter;
     }
     .sect3 .sect_wrap .center li.active { opacity: 1; color: #000; }
     .sect3 .sect_wrap .left,
@@ -242,6 +243,10 @@
             font-size: clamp(17px, 5.2vw, 28px);
             max-width: 92vw;
             line-height: 1.2;
+            transition: none;
+        }
+        .sect3.is-active {
+            will-change: transform;
         }
         .sect3 .sect_wrap .center_box__fade {
             height: 20%;
@@ -310,6 +315,10 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        ScrollTrigger.normalizeScroll(true);
+    }
+
     window.addEventListener('scroll', function() {
         const sect3 = document.querySelector('.sect3');
         const sect3OffsetTop = sect3.getBoundingClientRect().top +10;
@@ -354,9 +363,25 @@
         gsap.set(".sect3", { clearProps: "borderRadius" });
     }
 
-    function syncCarouselState() {
+    function syncCarouselState(scrollTrigger) {
+        const st = scrollTrigger || (tl1 && tl1.scrollTrigger);
+        if (!st) return;
+
+        if (isMobileView()) {
+            if (!st.isActive) {
+                if (st.progress <= 0.01) resetToFirstItem();
+                return;
+            }
+            if (st.progress <= 0.02 && st.direction < 0) {
+                resetToFirstItem();
+                return;
+            }
+            updateActiveItem(st.progress * 315, { mobileFast: true });
+            return;
+        }
+
         const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
-        const carouselProgress = tl1 && tl1.scrollTrigger ? tl1.scrollTrigger.progress : 0;
+        const carouselProgress = st.progress;
         const sect3Top = document.querySelector('.sect3')?.getBoundingClientRect().top ?? 0;
 
         if (scrollTop <= 30 || carouselProgress <= 0.05 || sect3Top >= 50 && sect3Top <= 100 && scrollTop < 120) {
@@ -367,7 +392,8 @@
         updateActiveItem(getCenterRotation());
     }
 
-    function updateActiveItem(rotateXValue) {
+    function updateActiveItem(rotateXValue, options) {
+        const mobileFast = options && options.mobileFast;
         const items = Array.from(ul.children);
         const total = items.length;
         if (!total) return;
@@ -394,20 +420,22 @@
             let blur = 0;
 
             if (!isActive) {
-                blur = Math.min(distance / (isMobileView() ? 18 : 14), isMobileView() ? 4 : 7);
+                blur = Math.min(distance / (isMobileView() ? 22 : 14), isMobileView() ? 3 : 7);
             }
 
-            if (scrollProgress < 0.12 && !isActive) {
-                const edgeStrength = 1 - (scrollProgress / 0.12);
-                if (i === total - 1) {
-                    blur = Math.max(blur, 8 * edgeStrength);
+            if (!mobileFast) {
+                if (scrollProgress < 0.12 && !isActive) {
+                    const edgeStrength = 1 - (scrollProgress / 0.12);
+                    if (i === total - 1) {
+                        blur = Math.max(blur, 8 * edgeStrength);
+                    }
                 }
-            }
 
-            if (scrollProgress > 0.9 && !isActive) {
-                const edgeStrength = (scrollProgress - 0.9) / 0.1;
-                if (i === 0) {
-                    blur = Math.max(blur, 8 * edgeStrength);
+                if (scrollProgress > 0.9 && !isActive) {
+                    const edgeStrength = (scrollProgress - 0.9) / 0.1;
+                    if (i === 0) {
+                        blur = Math.max(blur, 8 * edgeStrength);
+                    }
                 }
             }
 
@@ -481,8 +509,11 @@
 
     let scrollSyncFrame;
     window.addEventListener('scroll', function () {
+        if (isMobileView()) return;
         cancelAnimationFrame(scrollSyncFrame);
-        scrollSyncFrame = requestAnimationFrame(syncCarouselState);
+        scrollSyncFrame = requestAnimationFrame(function () {
+            syncCarouselState();
+        });
     }, { passive: true });
 
     document.querySelector('.logo-mark')?.addEventListener('click', function () {
@@ -545,38 +576,48 @@
             });
         },
         "(max-width: 768px)": function () {
+            ScrollTrigger.normalizeScroll(true);
+            const sect3El = document.querySelector(".sect3");
+
             tl1 = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".sect3",
                     pin: true,
                     pinSpacing: true,
-                    scrub: 0.75,
+                    pinType: "fixed",
+                    scrub: true,
+                    fastScrollEnd: true,
                     start: "top top",
                     end: "+=115%",
                     ease: "none",
                     markers: false,
                     invalidateOnRefresh: true,
-                    anticipatePin: 1,
-                    onUpdate: syncCarouselState,
+                    onToggle: function (self) {
+                        sect3El.classList.toggle("is-active", self.isActive);
+                    },
+                    onUpdate: function (self) {
+                        syncCarouselState(self);
+                    },
+                    onScrubComplete: function (self) {
+                        syncCarouselState(self);
+                    },
                     onLeaveBack: function () {
                         releaseAboutSection();
                         resetToFirstItem();
                     },
-                    onLeave: function () {
+                    onLeave: function (self) {
                         releaseAboutSection();
-                        syncCarouselState();
+                        gsap.set(".center", { rotationX: 315 });
+                        updateActiveItem(315, { mobileFast: true });
                     },
-                    onEnterBack: syncCarouselState,
+                    onEnterBack: function (self) {
+                        syncCarouselState(self);
+                    },
                 }
             })
             .fromTo(".center",
                 { rotationX: 0 },
                 { rotationX: 315, ease: "none", duration: 1 }
-            )
-            .fromTo(".sect3",
-                { borderRadius: "0px" },
-                { borderRadius: "0px 0px 24px 24px", ease: "power1.out", duration: 0.15 },
-                0.88
             );
         }
     });
