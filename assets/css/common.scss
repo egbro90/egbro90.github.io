@@ -626,10 +626,18 @@ footer {
     .portfolio-area {
         padding: 28px 12px 0;
 
-        .grid .grid-item {
-            width: 100%;
-            margin-bottom: 32px;
-            float: none;
+        .grid {
+            height: auto !important;
+
+            .grid-item {
+                width: 100%;
+                margin-bottom: 32px;
+                float: none;
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                transform: none !important;
+            }
         }
     }
 }
