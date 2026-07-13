@@ -192,7 +192,8 @@
     }
 
     @media all and (max-width: 768px) {
-        #about { min-height: 240vh; padding-bottom: 20vh; }
+        #about { min-height: 0; padding-bottom: 0; }
+        #portfolio { margin-top: 0; }
         .sect3 {
             height: auto;
             min-height: 0;
@@ -256,7 +257,7 @@
     }
 
     @media all and (max-width: 480px) {
-        #about { min-height: 200vh; padding-bottom: 12vh; }
+        #about { min-height: 0; padding-bottom: 0; }
         .sect3 .sect_wrap {
             grid-template-rows: auto minmax(300px, 52vh) auto;
             min-height: 68vh;
@@ -347,6 +348,10 @@
             item.classList.toggle('active', i === 0);
             item.style.filter = 'none';
         });
+    }
+
+    function releaseAboutSection() {
+        gsap.set(".sect3", { clearProps: "borderRadius" });
     }
 
     function syncCarouselState() {
@@ -532,6 +537,7 @@
                     markers: false,
                     invalidateOnRefresh: true,
                     onUpdate: syncCarouselState,
+                    onLeave: releaseAboutSection,
                 }
             }).to(".sect3", {
                 borderRadius: "0px 0px 50px 50px",
@@ -539,26 +545,39 @@
             });
         },
         "(max-width: 768px)": function () {
-            tl1 = createCarouselTimeline("bottom+=160% bottom");
-
-            gsap.timeline({
+            tl1 = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".sect3",
                     pin: true,
                     pinSpacing: true,
-                    scrub: 1,
+                    scrub: 0.75,
                     start: "top top",
-                    end: "bottom+=150% bottom",
-                    ease: "linear",
+                    end: "+=115%",
+                    ease: "none",
                     markers: false,
                     invalidateOnRefresh: true,
                     anticipatePin: 1,
                     onUpdate: syncCarouselState,
+                    onLeaveBack: function () {
+                        releaseAboutSection();
+                        resetToFirstItem();
+                    },
+                    onLeave: function () {
+                        releaseAboutSection();
+                        syncCarouselState();
+                    },
+                    onEnterBack: syncCarouselState,
                 }
-            }).to(".sect3", {
-                borderRadius: "0px 0px 20px 20px",
-                duration: 1,
-            });
+            })
+            .fromTo(".center",
+                { rotationX: 0 },
+                { rotationX: 315, ease: "none", duration: 1 }
+            )
+            .fromTo(".sect3",
+                { borderRadius: "0px" },
+                { borderRadius: "0px 0px 24px 24px", ease: "power1.out", duration: 0.15 },
+                0.88
+            );
         }
     });
 
